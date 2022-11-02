@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>adicionar contato</h2>
+    <form action="/add-action" method="post" enctype="multipart/form-data">
+        <input type="file" name="upload" required="true" />
+        <br> <br>
+        <input type="text" name="nome" placeholder="nome">
+        <br><br>
+        <input type="text" name="description" placeholder="description">
+        <br><br>
+        <input type="text" name="preco" placeholder="preço">
+        <br><br>
+        <select name="categoria" id="">
+            <option value="">select categoria</option>
+            <option value="pizaa">PIZZA</option>
+            <option value="hambuguer">HAMBURGER</option>
+            <option value="bebida">BEBIDA</option>
+        </select>
+        <br><br>
+
+        <select name="destaque" id="">
+            <option value="">select destaque</option>
+            <option value="sim">Sim</option>
+            <option value="não">Não</option>
+           
+        </select>
+       
+        <br><br>
+        <input type="submit" value="adicionar">
+    </form>
+
+</body>
+
+</html>

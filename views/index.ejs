@@ -1,0 +1,49 @@
+<button><a href="/add">adicionar contato</a></button>
+<br>
+<br>
+<table width="100%" border="1px">
+    <thead>
+        <tr>
+            <td>Image</td>
+            <td>Nome</td>
+            <td>description</td>
+            <td>Preço</td>
+            <td>categoria</td>
+            <td>Destaque</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% products.forEach((user)=>{ %>
+            <tr>
+                <td>
+                    <img src="<%= user.file %>" width="100px" alt="">
+                </td>
+                <td>
+                    <%= user.nome %>
+                </td>
+                <td>
+                    <%= user.description %>
+                </td>
+                <td>
+                    <%= user.preco %>
+                </td>
+                <td>
+                    <%= user.categoria %>
+                </td>
+                <td>
+                    <%= user.destaque %>
+                </td>
+                <td>
+                    <button>
+                        <a href="/edit/<%= user.id %>">editar</a>
+                    </button>
+                    <button>
+                        <a href="/delete/<%= user.id %>"
+                            onclick=" return confirm('tem certeza de excluir esse usuario?')">excluir</a>
+                    </button>
+                </td>
+            </tr>
+            <%})%>
+    </tbody>
+</table>

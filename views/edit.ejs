@@ -1,0 +1,31 @@
+<h2>editar contato</h2>
+<% if (product){ %>
+    <form action="/edit-action/" method="post" enctype="multipart/form-data">
+        <input type="text" name="id" value="<%= product.id %>" hidden>
+        <input type="file" name="upload" />
+        <br> <br>
+        <img src="/<%= product.file %>" alt="" width="100px">
+        <br> <br>
+        <input type="text" name="nome" value="<%= product.nome %>">
+        <br><br>
+        <input type="text" name="description" value="<%= product.description %>">
+        <br><br>
+        <input type="number" name="preco"  value="<%= product.preco %>">
+        <br><br>
+        <select name="categoria" id="">
+            <option value="">Categoria</option>
+            <option value="pizza" <%=product.categoria==='pizza' ? 'selected' : '' %>>pizza</option>
+            <option value="hamburguer" <%=product.categoria==='hamburguer' ? 'selected' : '' %>>hambúrguer</option>
+            <option value="bebida" <%=product.categoria==='bebida' ? 'selected' : '' %>>bebida</option>
+        </select>
+        <br> <br>
+        
+        <select name="destaque" id="">
+            <option value="">Destaque</option>
+            <option value="sim" <%=product.destaque==='sim' ? 'selected' : '' %>>Sim</option>
+            <option value="não" <%=product.destaque==='não' ? 'selected' : '' %>>Não</option>
+        </select>
+        <br><br>
+        <input type="submit" value="editar">
+    </form>
+    <% } %>
