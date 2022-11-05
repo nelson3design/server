@@ -7,6 +7,9 @@ const userAdminController = require('./controllers/userAdminController')
 const orderController = require('./controllers/orderController')
 const bannerController = require('./controllers/bannerController')
 const User = require('./models/userModel')
+const commentController = require('./controllers/commentController')
+
+
 const path = require('path')
 const { checkUser } = require("./middlewares/authMiddleware");
 const { checkUserAdmin } = require("./middlewares/authAdminMiddleware");
@@ -90,7 +93,9 @@ router.get('/pizza', productController.pizza)
 router.get('/bebidas', productController.bebidas)
 router.get('/destaque', productController.destaque)
 
-
+//comment
+router.post('/add-comment', upload.single('upload'), commentController.createComment)
+router.post('/comments', commentController.allComment)
 
 // cadastrar usuário
 router.post('/register', userController.userRegister)
