@@ -9,15 +9,13 @@ module.exports = {
 
 
     async createBanner(req, res) {
-         
+         console.log(req.body)
         try {
-           const { tipo } = req.body
+           const { tipo, link } = req.body
             const file = req.file.filename
            
-            const banner = await Banner.create({ tipo,file })
+            const banner = await Banner.create({ tipo, file, link })
             res.status(200).json({ msg: 'Banner registrado com sucesso' })
-
-            // res.redirect('/')
 
         } catch (error) {
             res.status(400).send(error);
