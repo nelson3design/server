@@ -98,7 +98,7 @@ module.exports = {
                 maxAge: maxAge * 1000,
             });
 
-            res.status(201).json({ msg: 'Usuário criado com sucesso!' })
+            res.status(200).json({ msg: 'Usuário criado com sucesso!' })
 
         } catch (error) {
             res.status(500).json({ msg: 'Aconteceu um erro no servidor, tente novamente mais tarde!' })
