@@ -31,7 +31,7 @@ module.exports = {
       
         try {
 
-            const coments = await Product.find()
+            const coments = await Comment.find()
 
             res.status(200).json(coments)
 
