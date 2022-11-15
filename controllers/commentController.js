@@ -21,17 +21,17 @@ module.exports = {
             res.status(200).json({ msg: 'Comentario adicionado com sucesso' })
 
         } catch (error) {
-            res.status(400).send(error);
+            res.status(400).send("error no servidor");
 
         }
 
     },
 
     async allComment(req, res) {
-        const {id}=req.body
+      
         try {
 
-            const coments = await Comment.find({ idProduct: id })
+            const coments = await Product.find()
 
             res.status(200).json(coments)
 
