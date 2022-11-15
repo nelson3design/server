@@ -5,7 +5,7 @@ const fs = require('fs')
 
 module.exports = {
 
-    // criar product
+    // criar banner
 
 
     async createBanner(req, res) {
@@ -23,7 +23,7 @@ module.exports = {
         }
 
     },
-    // lista todos os producto
+    // lista todos os banners
     async allBanner(req, res) {
         try {
             const banner = await Banner.find()
@@ -71,7 +71,7 @@ module.exports = {
     },
     
 
-    // excluir produto
+    // excluir banner
     async deleteBanner(req, res) {
         try {
             const { id } = req.params
@@ -81,9 +81,7 @@ module.exports = {
                 res.status(400).json({ msg: "Banner não esta resgistrado no nosso banco de dados" })
             }
 
-
             var oldImage = banner.file
-          
 
             fs.unlink('upload/' + oldImage, (error) => {
                 if (error) {
@@ -93,13 +91,10 @@ module.exports = {
                 }
             })
            
-
             res.status(200).json({ msg: 'banner excluido com sucesso!' })
 
-           
-
         } catch (error) {
-            console.log(error)
+            res.status(400).json({ msg: error })
         }
     },
 

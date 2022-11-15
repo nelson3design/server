@@ -42,7 +42,7 @@ module.exports = {
         try {
             const orders = await Order.find()
             return res.status(200).json(orders)
-           // res.render('index', { products })
+          
         } catch (error) {
             console.log(error)
         }

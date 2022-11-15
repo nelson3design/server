@@ -95,7 +95,9 @@ router.get('/destaque', productController.destaque)
 
 //comment
 router.post('/add-comment', upload.single('upload'), commentController.createComment)
-router.post('/comments', commentController.allComment)
+router.get('/comments', commentController.allComment)
+router.post('/comment/:id', commentController.oneComment)
+router.post('/product/comments/:idProduct', commentController.productComments)
 
 // cadastrar usuário
 router.post('/register', userController.userRegister)
