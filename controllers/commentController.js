@@ -62,9 +62,26 @@ module.exports = {
             res.status(400).json(error)
         }
     },
-
+    async commentProduct(req, res) {
+        const result = await Product.aggregate(
+            [
+                {
+                    $lookup: {
+                        from: 'comments',
+                        localField: '_id',
+                        foreignField: 'idProduct',
+                        as: 'comment'
+                    }
+                },
+                { $unwind: '$comment' }, // retorna um objeto
+                // { $match: { title: 'iphone 12'} } // buscar um usuario especifico
+            ]
+        )
+        res.status(200).json(result)
+    },
 
 }
+
 
 
 
